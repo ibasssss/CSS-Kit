@@ -1,0 +1,53 @@
+h1{
+	text-align: center;
+	color: #855;
+}
+.container{
+	width: 100%;
+}
+.progessbar{
+	counter-reset: step;	
+}
+.progessbar li{
+	list-style: none;
+	float: left;
+	width: 33.33%;
+	position: relative;
+	text-align: center;
+}
+.progessbar li::before {
+	counter-increment: step;
+	content: counter(step);
+	width: 30px;
+	height: 30px;
+	line-height: 30px;
+	border: 2px solid #eee;
+	display: block;
+	margin: 0 auto 10px auto;
+	border-radius: 50%;
+	background-color: #fff;
+	
+}
+.progessbar li:after{
+	content: '';
+	position: absolute;
+	width: 100%;
+	height: 2px;
+	background-color: #ddd;
+	top: 15px;
+	left: -50%;
+	z-index: -1;
+
+}
+.progessbar li:first-child:after{
+	content: none;
+}
+.progessbar li.active{
+	color:green;
+}
+.progessbar li.active:before{
+	border-color: green;
+}
+.progessbar li.active+li:after{
+	background-color: green;
+}
